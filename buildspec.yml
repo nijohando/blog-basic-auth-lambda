@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - make clean init package
+  build:
+    commands:
+      - make deploy/lambda
+      - make deploy/cf
+

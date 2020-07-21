@@ -1,0 +1,21 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/main" 
+  "src/test"]
+
+ :dependencies []
+
+ :builds {:app {:target :node-library
+                :exports {:handler basic-auth/handler}
+                :output-dir "out"
+                :output-to "out/index.js"
+                :release {:closure-defines {basic-auth/USERNAME #shadow/env "BASIC_AUTH_USERNAME"
+                                            basic-auth/PASSWORD #shadow/env "BASIC_AUTH_PASSWORD"}
+                          :compiler-options {:optimizations :simple}}}
+          :test {:target :node-test
+                 :output-to "out/node-tests.js"
+                 :ns-regexp "-test$"
+                 :autorun true
+                 :closure-defines {basic-auth/USERNAME "test_user"
+                                   basic-auth/PASSWORD "test_pass"}}}}
+

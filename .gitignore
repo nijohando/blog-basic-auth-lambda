@@ -1,0 +1,15 @@
+test.env
+.envrc
+/tmp
+/out
+.lein-*
+.nrepl-*
+.idea
+*.iml
+target/
+node_modules/
+checkouts/
+.shadow-cljs
+pom.xml
+yarn-error.log
+
